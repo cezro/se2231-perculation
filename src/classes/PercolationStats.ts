@@ -1,5 +1,5 @@
 import { Percolation } from "./Percolation";
-class PercolationStats {
+export class PercolationStats {
   private thresholds: number[] = [];
   private meanValue: number = 0;
   private stddevValue: number = 0;
@@ -12,8 +12,8 @@ class PercolationStats {
     for (let i = 0; i < trials; i++) {
       const percolation = new Percolation(n);
       while (!percolation.percolates()) {
-        const row = Math.floor(Math.random() * n);
-        const col = Math.floor(Math.random() * n);
+        const row = Math.floor(Math.random() * n + 1);
+        const col = Math.floor(Math.random() * n + 1);
         percolation.open(row, col);
       }
       const numberOfOpenSites = percolation.numberOfOpenSites();

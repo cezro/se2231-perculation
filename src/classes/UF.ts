@@ -13,10 +13,13 @@ export class UF {
   }
 
   root(i: number) {
-    while (i != this.ids[i]) {
+    let id = this.ids[i];
+    while (id !== this.ids[id]) {
       this.ids[i] = this.ids[this.ids[i]];
+      id = this.ids[id];
     }
-    return i;
+
+    return id;
   }
 
   getIndex(row: number, col: number) {
@@ -25,6 +28,10 @@ export class UF {
 
   rootByRowAndColumn(row: number, col: number) {
     return this.root(this.getIndex(row, col));
+  }
+
+  connected(p: number, q: number) {
+    return this.root(p) === this.root(q);
   }
 
   union(p: number, q: number) {
