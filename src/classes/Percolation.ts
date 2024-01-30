@@ -17,10 +17,25 @@ export class Percolation {
 
   open(row: number, col: number) {
     this.nodeStates[this.getIndex(row, col)] = true;
+    // put logic for union
   }
 
   showCurrent() {
     console.log("ids: \n", this.nodes.ids);
     console.log("nodeStates: \n", this.nodeStates);
+  }
+
+  percolates() {
+    return true;
+  }
+
+  numberOfOpenSites() {
+    let openSites = 0;
+    this.nodeStates.forEach((i) => {
+      if (i) {
+        openSites++;
+      }
+    });
+    return openSites;
   }
 }
