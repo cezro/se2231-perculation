@@ -5,7 +5,7 @@ class PercolationStats {
 
   constructor(n: number, trials: number) {
     if (n <= 0 || trials <= 0) {
-      throw new Error("Both n and trials must be greater than 0");
+      throw new Error("Both n & trials must be greater than 0");
     }
 
     for (let i = 0; i < trials; i++) {
